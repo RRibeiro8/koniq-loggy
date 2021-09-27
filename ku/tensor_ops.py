@@ -7,6 +7,7 @@ from keras import backend as K
 import tensorflow as tf
 from scipy import stats
 import numpy as np
+import tensorflow_probability as tfp
 
 #if sys.version_info.major==3:
     #tf = K.tensorflow_backend.tf
@@ -39,16 +40,41 @@ def GPUMemoryCap(fraction=0):
 
 
 # Metrics and losses
+
+def correlationMetric(x, y, axis=-2):
+    """Metric returning the Pearson correlation coefficient of two tensors over some axis, default -2."""
+    x = tf.convert_to_tensor(x)
+    y = tf.cast(y, x.dtype)
+    n = tf.cast(tf.shape(x)[axis], x.dtype)
+    xsum = tf.reduce_sum(x, axis=axis)
+    ysum = tf.reduce_sum(y, axis=axis)
+    xmean = xsum / n
+    ymean = ysum / n
+    xvar = tf.reduce_sum( tf.math.squared_difference(x, xmean), axis=axis)
+    yvar = tf.reduce_sum( tf.math.squared_difference(y, ymean), axis=axis)
+    cov = tf.reduce_sum( (x - xmean) * (y - ymean), axis=axis)
+    corr = cov / tf.sqrt(xvar * yvar)
+    return corr#tf.constant(1.0, dtype=x.dtype) - corr
     
-def plcc_tf(x, y):
+def plcc(x, y):
     """PLCC metric"""
+    return tfp.stats.correlation(x,y)
+
+def plccloss(x, y):
+    """Loss version of `plcc_tf`"""
+    return (1 - plcc(x, y)**2)
+
+def plcc_tf(x, y):
+
     xc = x - K.mean(x)
-    yc = y - K.mean(y)
+    yc = y - K.mean(y) 
+
     return K.mean(xc*yc)/(K.std(x)*K.std(y) + K.epsilon())
+
 
 def plcc_loss(x, y):
     """Loss version of `plcc_tf`"""
-    return (1. - plcc_tf(x, y)) / 2.
+    return (1. - plcc(x, y)) / 2.
 
 def earth_mover_loss(y_true, y_pred):
     """

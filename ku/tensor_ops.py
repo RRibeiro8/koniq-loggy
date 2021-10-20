@@ -60,9 +60,6 @@ def plcc(x, y):
     """PLCC metric"""
     return tfp.stats.correlation(x,y)
 
-def plccloss(x, y):
-    """Loss version of `plcc_tf`"""
-    return (1 - plcc(x, y)**2)
 
 def plcc_tf(x, y):
 
@@ -71,6 +68,16 @@ def plcc_tf(x, y):
 
     return K.mean(xc*yc)/(K.std(x)*K.std(y) + K.epsilon())
 
+def plccloss(x, y):
+    """Loss version of `plcc_tf`"""
+    return (1. - plcc(x, y))**2
+
+#def my_loss(x, y):
+
+#    l1 = (1. - plcc(x, y))**2
+#    l2 = tf.keras.metrics.mean_absolute_error(y_true, y_pred)
+
+#    return l1 + (l2*0.01)
 
 def plcc_loss(x, y):
     """Loss version of `plcc_tf`"""

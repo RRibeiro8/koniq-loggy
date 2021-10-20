@@ -54,7 +54,7 @@ gen_params = dict(batch_size  = 4,
 
 # Wrapper for the model, helps with training and testing
 helper = mh.ModelHelper(model, 'KonCept512', ids, 
-                     loss='MSE', metrics=["MAE", ops.plcc_tf],
+                     loss=ops.plcc_loss, metrics=[ops.plcc, 'MAE'],#loss= 'MSE' or ops.plcc_loss | metrics=[ops.plcc, ops.plcc_tf], v1: loss='mse', "MAE", metrics=[tf.keras.metrics.MeanAbsoluteError()] 
                      monitor_metric = 'val_loss', 
                      monitor_mode   = 'min', 
                      multiproc   = True, workers = 1,
@@ -62,16 +62,21 @@ helper = mh.ModelHelper(model, 'KonCept512', ids,
                      models_root = data_root + 'models/koniq',
                      gen_params  = gen_params)
 
+# do validation in memory
+#valid_gen = helper.make_generator(ids[ids.set=='validation'], 
+#                                 batch_size = 8) #len(ids[ids.set=='validation'])
+#valid_data = valid_gen[0]
+
+# do validation in memory
+#valid_gen = helper.make_generator(ids[ids.set=='validation'], 
+#                                  batch_size = 8)
+
+#helper.load_model(model_name='b8_MSE')
 helper.train(lr=1e-4, epochs=40)
 helper.load_model()
 helper.train(lr=1e-4/5, epochs=20)
 helper.load_model()
 helper.train(lr=1e-4/10, epochs=10)
-
-# do validation in memory
-#valid_gen = helper.make_generator(ids[ids.set=='validation'], 
-#                                 batch_size = 8) #len(ids[ids.set=='validation'])
-#valid_data = valid_gen[0]
 
 #print('############ ', valid_data)
 #helper.train(valid_gen=valid_data, lr=1e-4, epochs=40) 

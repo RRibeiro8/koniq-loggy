@@ -15,12 +15,15 @@ import pandas as pd
 from tqdm import tqdm
 from scipy import stats
 from koncept_model import model_qa
+from scipy.io import loadmat
 
 
 print("PyTorch Version: ",torch.__version__)
 print("Torchvision Version: ",torchvision.__version__)
 
 device  = torch.device("cuda:0")
+
+data_root = 'koniq/'
 
 def plcc(x, y):
     """Pearson Linear Correlation Coefficient"""
@@ -52,6 +55,29 @@ def rating_metrics(y_true, y_pred, show_plot=True):
         plt.show()
     return (p_srocc, p_plcc, p_mae, p_rmse)
 
+def read_mat_to_DataFrame():
+
+    live_images_mat = loadmat(data_root + 'metadata/AllImages_release.mat')
+    live_MOS_mat = loadmat(data_root + 'metadata/AllMOS_release.mat')
+
+    live_images_mdata = live_images_mat['AllImages_release']
+    live_MOS_mdata = live_MOS_mat['AllMOS_release']
+
+
+    live_images_path = [item.flat[0][0] for item in live_images_mdata]
+    live_MOS_values = [item.flat[0] for item in live_MOS_mdata[0]]
+
+
+    live_test = {'image_name': [], 'MOS': [], 'set': []}
+    for img_path, mos in zip(live_images_path, live_MOS_values):
+
+        if not img_path.startswith('t'):
+          live_test['image_name'].append(img_path)
+          live_test['MOS'].append(mos)
+          live_test['set'].append('test') 
+
+    return pd.DataFrame(live_test, columns=['image_name','MOS', 'set'])
+
 def main():
 
     KonCept512 = model_qa(num_classes=1) 
@@ -68,20 +94,22 @@ def main():
 
         ]),
         'val': transforms.Compose([
-    #         transforms.Resize(input_size),
+            transforms.Resize((384,512)),
     #         transforms.CenterCrop(input_size),
             transforms.ToTensor(),
             transforms.Normalize([0.5, 0.5, 0.5], [0.5, 0.5, 0.5])
         ]),
     }
 
-    ids = pd.read_csv('koniq/metadata/koniq10k_distributions_sets.csv')
-    data_dir='koniq/images/512x384'
-    ids_train = ids[ids.set=='training'].reset_index()
-    ids_val = ids[ids.set=='validation'].reset_index()
+    #ids = pd.read_csv('koniq/metadata/koniq10k_distributions_sets.csv')
+    ids = read_mat_to_DataFrame()
+    #data_dir='koniq/images/512x384' images/live_500x500/
+    data_dir='koniq/images/live_500x500'
+    #ids_train = ids[ids.set=='training'].reset_index()
+    #ids_val = ids[ids.set=='validation'].reset_index()
     ids_test = ids[ids.set=='test'].reset_index()
 
-    batch_size=16
+    batch_size=8
     num_batches = np.int(np.ceil(len(ids_test)/batch_size))
 
 

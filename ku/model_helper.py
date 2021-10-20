@@ -473,6 +473,7 @@ class ModelHelper(object):
         model_file_name = (model_name + ('_best' if best else '_final') + 
                           ('_weights' if from_weights else '') + '.h5')
         model_path = os.path.join(self.params.models_root, model_file_name)
+        
         if not os.path.exists(model_path):
             if verbose:
                 print('Model NOT loaded:', model_file_name, 'does not exist')

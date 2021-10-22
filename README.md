@@ -62,3 +62,12 @@ The lifelogging dataset can be downloaded from the [LSC'21 Challenge](http://lsc
 After downloading put the date folders with the images of the dataset into the folder ['datasets/LSC21/lsc21-image/'](datasets/LSC21/lsc21-image/) of this project. 
 
 
+## Experimental Setup and Results
+
+In this section, we provide our procedure to train models with KonIQ-10k dataset and the test results in the KonIQ-10k and LIVE-itW. We also provide some files with the MOS (Mean Oinion Score) of the lifelogging images using two pre-trained models.
+
+
+### Training Models
+
+
+

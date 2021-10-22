@@ -43,13 +43,15 @@ After downloading the 'koniq10k_512x384.zip' into the folder of this project, yo
 
 
 ```
-
 unzip koniq10k_512x384.zip -d koniq/images/
 ```
 
 
-
 ### LIVE In the Wild Image Quality Challenge Database
+
+The LIVE-itW dataset can be download from the [LIVE In the Wild Image Quality Challenge Database](https://live.ece.utexas.edu/research/ChallengeDB/index.html) website.
+
+You only have to copy the test images of the LIVE-itW dataset to the folder ['koniq/images/live_500x500/'](koniq/images/live_500x500/).
 
 
 

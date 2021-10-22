@@ -9,13 +9,26 @@ The [koniq](koniq/) folder is the [KonIQ-10k](https://github.com/subpic/koniq) o
 - Python 3.8
 - Tensorflow 2.6
 - PyTorch 1.9 
-- CUDA 11.x
+- CUDA 11.X
 
 ### Install Requirements
 
 You can install the requirements using the [requirements.txt](requirements.txt) file by running the command:
 
-```pip install -r requirements.txt
+```
+pip install -r requirements.txt
 
 ```
+
+Note that the PyTorch library is not in the [requirements.txt](requirements.txt), so you have to install it by running:
+
+```
+pip install torch==1.10.0+cu113 torchvision==0.11.1+cu113 torchaudio==0.10.0+cu113 -f https://download.pytorch.org/whl/cu113/torch_stable.html
+
+```
+
+The CUDA 11.X library can be installed by using the original documentation ["NVIDIA CUDA Installation Guide"](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
+
+
+## Datasets
 

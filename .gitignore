@@ -147,11 +147,11 @@ lifelog_koncept512/models/*
 lifelog_koncept512/images_test/*
 koniq/logs/koniq/*
 koniq/models/koniq/*
-koniq/images/*
+koniq/images/512x384/*
+koniq/images/live_500x500/*
 share/*
 datasets/*
 
-!koniq/images/.gitkeep
 !koniq/images/live_500x500/.gitkeep
 
 koniq10k_512x384.zip

@@ -62,7 +62,7 @@ helper = mh.ModelHelper(model, 'KonCept512', ids,
                      models_root = data_root + 'models/koniq',
                      gen_params  = gen_params)
 
-helper.model.load_weights(model_root + 'b_8:16_60:30_MSE_best_weights.h5')#'original_koncep512-trained-model.h5')
+helper.model.load_weights(model_root + 'original_koncep512-trained-model.h5')
 
 y_pred = helper.predict()
 y_true = ids[ids.set=='test'].MOS.values

@@ -45,7 +45,7 @@ model = Model(inputs = base_model.input, outputs = head)
 # Parameters of the generator
 pre = lambda im: preprocess_fn(
          iu.ImageAugmenter(im, remap=False).fliplr().result)
-gen_params = dict(batch_size  = 4,
+gen_params = dict(batch_size  = 8,
                   data_path   = data_root+'images/512x384/',
                   process_fn  = pre, 
                   input_shape = (384,512,3),
@@ -54,7 +54,7 @@ gen_params = dict(batch_size  = 4,
 
 # Wrapper for the model, helps with training and testing
 helper = mh.ModelHelper(model, 'KonCept512', ids, 
-                     loss=ops.plcc_loss, metrics=[ops.plcc],#, "MAE"],#tf.keras.metrics.MeanAbsoluteError()],#["MAE"]#, ops.plcc_tf],
+                     loss='MSE', metrics=["MAE", ops.plcc],
                      monitor_metric = 'val_loss', 
                      monitor_mode   = 'min', 
                      multiproc   = True, workers = 1,
@@ -62,10 +62,9 @@ helper = mh.ModelHelper(model, 'KonCept512', ids,
                      models_root = data_root + 'models/koniq',
                      gen_params  = gen_params)
 
-helper.model.load_weights(model_root + 'b4_plcc_loss_best_weights.h5')#'original_koncep512-trained-model.h5')
+helper.model.load_weights(model_root + 'original_koncep512-trained-model.h5')
 
 y_pred = helper.predict()
 y_true = ids[ids.set=='test'].MOS.values
 apps.rating_metrics(y_true, y_pred);
-#apps.test_rating_model(helper);
 

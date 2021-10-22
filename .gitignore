@@ -143,8 +143,6 @@ dmypy.json
 
 trained_models/*
 terminal_prints/*
-lifelog_koncept512/models/*
-lifelog_koncept512/images_test/*
 koniq/logs/koniq/*
 koniq/models/koniq/*
 koniq/images/512x384/*
@@ -156,6 +154,7 @@ datasets/LSC21/lsc21-image/*
 !koniq/images/live_500x500/.gitkeep
 !datasets/LSC21/lsc21-image/.gitkeep
 !koniq/models/koniq/.gitkeep
+!trained_models/.gitkeep
 
 koniq10k_512x384.zip
 koniq10k_scores_and_distributions.zip

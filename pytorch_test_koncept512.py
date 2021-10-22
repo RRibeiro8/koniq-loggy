@@ -101,12 +101,11 @@ def main():
         ]),
     }
 
-    #ids = pd.read_csv('koniq/metadata/koniq10k_distributions_sets.csv')
-    ids = read_mat_to_DataFrame()
-    #data_dir='koniq/images/512x384' images/live_500x500/
-    data_dir='koniq/images/live_500x500'
-    #ids_train = ids[ids.set=='training'].reset_index()
-    #ids_val = ids[ids.set=='validation'].reset_index()
+    ids = pd.read_csv('koniq/metadata/koniq10k_distributions_sets.csv')
+    #ids = read_mat_to_DataFrame()
+    data_dir='koniq/images/512x384' images/live_500x500/
+    #data_dir='koniq/images/live_500x500'
+
     ids_test = ids[ids.set=='test'].reset_index()
 
     batch_size=8

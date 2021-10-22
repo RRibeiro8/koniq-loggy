@@ -117,3 +117,46 @@ python pytorch_train_koncept512.py
 
 
 ### Testing Models
+
+We tested the models in the KonIQ-10k and LIVE-itW datasets. 
+The pre-trained models to be tested must be in the [trained_models/](trained_models/) folder. 
+
+#### KonIQ-10k 
+
+Change the name of the pre-trained model to be tested in the code of the python script and run:
+
+
+```
+python test_koncept512.py
+```
+
+or with kuti library installed with pip:
+
+```
+python test_koncept512_with_kuti.py
+```
+
+
+#### LIVE-itW
+
+Change the name of the pre-trained model to be tested in the code of the python script and run:
+
+
+```
+python test_LIVEitw.py
+```
+
+
+#### With PyTorch
+
+To test the pytorch models in KonIQ-10k and LIVE-itW datasets run the python script:
+
+```
+python pytorch_test_koncept512.py
+```
+
+Note that to change the testing from KonIQ-10k to LIVE-itW, you have to change in the code the 'ids' and 'data_dir' variables to 'ids = read_mat_to_DataFrame()' and 'data_dir="koniq/images/live_500x500"'.
+
+
+
+### Results and Pre-trained models

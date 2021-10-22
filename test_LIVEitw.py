@@ -72,7 +72,7 @@ model = Model(inputs = base_model.input, outputs = head)
 # Parameters of the generator
 pre = lambda im: preprocess_fn(
          iu.ImageAugmenter(im, remap=False).fliplr().resize((384,512)).result)
-gen_params = dict(batch_size  = 4,
+gen_params = dict(batch_size  = 8,
                   data_path   = data_root+'images/live_500x500/',
                   process_fn  = pre, 
                   input_shape = (384,512,3),
@@ -89,7 +89,7 @@ helper = mh.ModelHelper(model, 'KonCept512', ids,
                      models_root = data_root + 'models/koniq',
                      gen_params  = gen_params)
 
-helper.model.load_weights(model_root + 'b4_plcc_loss_best_weights.h5')#'original_koncep512-trained-model.h5')
+helper.model.load_weights(model_root + 'original_koncep512-trained-model.h5')
 
 y_pred = helper.predict()
 y_true = ids[ids.set=='test'].MOS.values

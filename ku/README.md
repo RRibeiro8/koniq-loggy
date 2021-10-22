@@ -1,3 +1,5 @@
+# This folder is a copy of the original repository [Keras Utilities (KU)](https://github.com/subpic/ku) with some change in the versions of the used libraries.
+
 # Keras Utilities (KU)
 
 The project contains utilities for image assessment development with Keras/Tensorflow, including utilities for model training, custom generators, image management and augmentation. This is an extension of [kutils](https://github.com/subpic/kutils).

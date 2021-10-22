@@ -57,4 +57,8 @@ You only have to copy the test images of the LIVE-itW dataset to the folder ['ko
 
 ### LSC'21 Dataset
 
+The lifelogging dataset can be downloaded from the [LSC'21 Challenge](http://lsc.dcu.ie/lsc_data/) webpage.
+
+After downloading put the date folders with the images of the dataset into the folder ['datasets/LSC21/lsc21-image/'](datasets/LSC21/lsc21-image/) of this project. 
+
 

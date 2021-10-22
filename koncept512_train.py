@@ -45,7 +45,7 @@ model = Model(inputs = base_model.input, outputs = head)
 # Parameters of the generator
 pre = lambda im: preprocess_fn(
          iu.ImageAugmenter(im, remap=False).fliplr().result)
-gen_params = dict(batch_size  = 8,
+gen_params = dict(batch_size  = 8,# 4 or 2
                   data_path   = data_root+'images/512x384/',
                   process_fn  = pre, 
                   input_shape = (384,512,3),
@@ -54,7 +54,7 @@ gen_params = dict(batch_size  = 8,
 
 # Wrapper for the model, helps with training and testing
 helper = mh.ModelHelper(model, 'KonCept512', ids, 
-                     loss='MSE', metrics=['MAE', ops.plcc,],#loss= 'MSE' or ops.plcc_loss | metrics=[ops.plcc, ops.plcc_tf], v1: loss='mse', "MAE", metrics=[tf.keras.metrics.MeanAbsoluteError()] 
+                     loss='MSE', metrics=['MAE', ops.plcc,],#loss= 'MSE' or ops.plcc_loss
                      monitor_metric = 'val_loss', 
                      monitor_mode   = 'min', 
                      multiproc   = True, workers = 1,

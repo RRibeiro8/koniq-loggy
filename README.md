@@ -72,9 +72,11 @@ The original KonCept512 pre-trained model can be found and downloaded from the o
 ### Training Models
 
 
+#### With Tensorflow
+
 In a first stage, we trained the KonCept model three times with different batch sizes of 2, 4 and 8.
 
-In order to run the training of the models, we provide the [koncept512_train.py](koncept512_train.py) ptyhon script, that can be used as follows:
+In order to run the training of the models, we provide the [koncept512_train.py](koncept512_train.py) python script, that can be used as follows:
 
 
 ```
@@ -84,3 +86,34 @@ python koncept512_train.py
 This script is prepared to train the KonCept512 model with batch size of 8 and MSE (Mean Square Error) loss function.
 However, you can change in the code the batch size to 4 or 2, in order to train the other models.
 
+To train the model with the PLCC-induced loss, the loss function has to be changed to 'loss=ops.plcc_loss' in the code of the [koncept512_train.py](koncept512_train.py) python script. And run this script again.
+
+The trained models are save in the folder [koniq/models/koniq/](koniq/models/koniq/) folder.
+
+
+#### With Keras utilities (Kuti) library installed with pip
+
+
+Install the [Keras utilities (Kuti)](https://pypi.org/project/kuti/) with:
+
+```
+pip install kuti
+```
+
+And run the [koncept512_train_with_kuti.py](koncept512_train_with_kuti.py) python script to train the model:
+
+```
+python koncept512_train_with_kuti.py
+```
+
+#### With PyTorch
+
+
+Run the [pytorch_train_koncept512.py](pytorch_train_koncept512.py) python script:
+
+```
+python pytorch_train_koncept512.py
+```
+
+
+### Testing Models

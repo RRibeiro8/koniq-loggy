@@ -67,8 +67,6 @@ helper = mh.ModelHelper(model, 'KonCept512', ids,
 valid_gen = helper.make_generator(ids[ids.set=='validation'], 
                                   batch_size = 8)
 
-helper.train(valid_gen=valid_gen, lr=1e-4, epochs=60)
+helper.train(valid_gen=valid_gen, lr=1e-4, epochs=40)
 helper.load_model()
-helper.train(valid_gen=valid_gen, lr=1e-4/5, epochs=30)
-helper.load_model()
-helper.train(valid_gen=valid_gen, lr=1e-4/10, epochs=20)
+helper.train(valid_gen=valid_gen, lr=1e-4/5, epochs=20)

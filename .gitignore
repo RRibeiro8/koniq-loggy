@@ -155,6 +155,7 @@ datasets/LSC21/lsc21-image/*
 
 !koniq/images/live_500x500/.gitkeep
 !datasets/LSC21/lsc21-image/.gitkeep
+!koniq/models/koniq/.gitkeep
 
 koniq10k_512x384.zip
 koniq10k_scores_and_distributions.zip

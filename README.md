@@ -66,8 +66,21 @@ After downloading put the date folders with the images of the dataset into the f
 
 In this section, we provide our procedure to train models with KonIQ-10k dataset and the test results in the KonIQ-10k and LIVE-itW. We also provide some files with the MOS (Mean Oinion Score) of the lifelogging images using two pre-trained models.
 
+The original KonCept512 pre-trained model can be found and downloaded from the original repository of [KonIQ-10k](https://github.com/subpic/koniq).
+
 
 ### Training Models
 
 
+In a first stage, we trained the KonCept model three times with different batch sizes of 2, 4 and 8.
+
+In order to run the training of the models, we provide the [koncept512_train.py](koncept512_train.py) ptyhon script, that can be used as follows:
+
+
+```
+python koncept512_train.py
+```
+
+This script is prepared to train the KonCept512 model with batch size of 8 and MSE (Mean Square Error) loss function.
+However, you can change in the code the batch size to 4 or 2, in order to train the other models.
 

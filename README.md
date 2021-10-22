@@ -32,3 +32,27 @@ The CUDA 11.X library can be installed by using the original documentation ["NVI
 
 ## Datasets
 
+In order to train and test models, you have to download the required datasets:
+
+### KonIQ-10k Image Database (512x384)
+
+The original KonIQ-10k dataset can be download from the [KonIQ-10k website](http://database.mmsp-kn.de/koniq-10k-database.html).
+We used the dataset with the image of resolution 512x384.
+
+After downloading the 'koniq10k_512x384.zip' into the folder of this project, you can follow the next command:
+
+
+```
+
+unzip koniq10k_512x384.zip -d koniq/images/
+```
+
+
+
+### LIVE In the Wild Image Quality Challenge Database
+
+
+
+### LSC'21 Dataset
+
+

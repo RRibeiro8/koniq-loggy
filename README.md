@@ -166,7 +166,7 @@ Trained model with different batch size compared to the original pre-trained mod
 |		   |  KonIQ-10k  |  LIVE-itW  |   |
 |:---:|:---:|:---:|:---:|
 |Batch size| SROCC \| PLCC|SROCC \| PLCC| Model |
-|16 [KonCept512](https://github.com/subpic/koniq) | 0.921 | 0.937 | 0.825 | 0.848 | [link]() |
+|16 [KonCept512](https://github.com/subpic/koniq) | 0.921 \| 0.937 | 0.825 \| 0.848 | [link](https://drive.google.com/file/d/1ae4t3j42dEB5yCSKlDxovjJq0tAHs3vo/view?usp=sharing) |
 | 8 | 0.889 \| 0.903 | 0.800 \| 0.809 | [link]() |
 | 4 | 0.793 \| 0.774 | 0.667 \| 0.661 | [link]() |
 | 2 | 0.426 \| 0.413 | 0.363 \| 0.349 | [link]() |
@@ -186,6 +186,6 @@ Trained  model  with  update  version,  and  pytorch  version  of  authorscompar
 |		   |  KonIQ-10k  |  LIVE-itW  | |
 |:---:|:---:|:---:|:---:|
 |Batch size| SROCC \| PLCC|SROCC \| PLCC| Model |
-|16 [KonCept512](https://github.com/subpic/koniq) | 0.921 \| 0.937 | 0.825 \| 0.848 |  [link]() |
+|16 [KonCept512](https://github.com/subpic/koniq) | 0.921 \| 0.937 | 0.825 \| 0.848 |  [link](https://drive.google.com/file/d/1ae4t3j42dEB5yCSKlDxovjJq0tAHs3vo/view?usp=sharing) |
 | 8 (Tensorflow) | 0.902 \| 0.921 | 0.796 \| 0.803 | [link]() |
 | 8 (Pytorch) | 0.892 \| 0.913 | 0.783 \| 0.805 | [link]() |

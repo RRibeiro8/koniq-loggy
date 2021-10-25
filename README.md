@@ -165,7 +165,7 @@ Trained model with different batch size compared to the original pre-trained mod
 
 |		   |  KonIQ-10k  |  LIVE-itW  |
 |----------|-------------|------------|
-|Batch size| SROCC | PLCC|SROCC | PLCC|
+|Batch size| SROCC \| PLCC|SROCC \| PLCC|
 |-------------------------------------|
 |16 [KonCept512](https://github.com/subpic/koniq) | 0.921 | 0.937 | 0.825 | 0.848 |
 | 8 | 0.889 | 0.903 | 0.800 | 0.809 |

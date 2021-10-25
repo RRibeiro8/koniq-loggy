@@ -160,3 +160,35 @@ Note that to change the testing from KonIQ-10k to LIVE-itW, you have to change i
 
 
 ### Results and Pre-trained models
+
+Trained model with different batch size compared to the original pre-trained model KonCept512.
+
+|		   |  KonIQ-10k  |  LIVE-itW  |
+|----------|-------------|------------|
+|Batch size| SROCC | PLCC|SROCC | PLCC|
+|-------------------------------------|
+|16 [KonCept512](https://github.com/subpic/koniq) | 0.921 | 0.937 | 0.825 | 0.848 |
+| 8 | 0.889 | 0.903 | 0.800 | 0.809 |
+| 4 | 0.793 | 0.774 | 0.667 | 0.661 |
+| 2 | 0.426 | 0.413 | 0.363 | 0.349 |
+
+
+Trained model with PLCC-induced loss function to maximize the PLCCwith different batch size.
+
+|           | KonIQ-10k   |  LIVE-itW  |
+|-----------|-------------|------------|
+| Batch size| SROCC | PLCC|SROCC | PLCC|
+|--------------------------------------|
+| 8 | 0.914 | 0.930 | 0.816 | 0.837 |
+| 4 | 0.871 | 0.877 | 0.748 | 0.713 |
+
+
+
+Trained  model  with  update  version,  and  pytorch  version  of  authorscompared to the original pre-trained model KonCept512.
+|		   |  KonIQ-10k  |  LIVE-itW  |
+|----------|-------------|------------|
+|Batch size| SROCC | PLCC|SROCC | PLCC|
+|-------------------------------------|
+|16 [KonCept512](https://github.com/subpic/koniq) | 0.921 | 0.937 | 0.825 | 0.848 |
+| 8 (Tensorflow) | 0.902| 0.921 | 0.796| 0.803 |
+| 8 (Pytorch) | 0.892 | 0.913 | 0.783 | 0.805 |

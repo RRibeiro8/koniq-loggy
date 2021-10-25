@@ -103,7 +103,7 @@ def main():
 
     ids = pd.read_csv('koniq/metadata/koniq10k_distributions_sets.csv')
     #ids = read_mat_to_DataFrame()
-    data_dir='koniq/images/512x384' images/live_500x500/
+    data_dir='koniq/images/512x384' #images/live_500x500/
     #data_dir='koniq/images/live_500x500'
 
     ids_test = ids[ids.set=='test'].reset_index()

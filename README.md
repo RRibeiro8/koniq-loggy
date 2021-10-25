@@ -167,9 +167,9 @@ Trained model with different batch size compared to the original pre-trained mod
 |:---:|:---:|:---:|:---:|
 |Batch size| SROCC \| PLCC|SROCC \| PLCC| Model |
 |16 [KonCept512](https://github.com/subpic/koniq) | 0.921 \| 0.937 | 0.825 \| 0.848 | [link](https://drive.google.com/file/d/1ae4t3j42dEB5yCSKlDxovjJq0tAHs3vo/view?usp=sharing) |
-| 8 | 0.889 \| 0.903 | 0.800 \| 0.809 | [link]() |
-| 4 | 0.793 \| 0.774 | 0.667 \| 0.661 | [link]() |
-| 2 | 0.426 \| 0.413 | 0.363 \| 0.349 | [link]() |
+| 8 | 0.889 \| 0.903 | 0.800 \| 0.809 | [link](https://drive.google.com/file/d/1Mac9uezGd3phkSpXXiNqioFgZhOUXllG/view?usp=sharing) |
+| 4 | 0.793 \| 0.774 | 0.667 \| 0.661 | [link](https://drive.google.com/file/d/1gnixh8WD2y02ydxQqRXoHdhMQtQfduE6/view?usp=sharing) |
+| 2 | 0.426 \| 0.413 | 0.363 \| 0.349 | [link](https://drive.google.com/file/d/1qycHO4O1ShUumVOwQ9f8m4Imod_AmS00/view?usp=sharing) |
 
 
 Trained model with PLCC-induced loss function to maximize the PLCCwith different batch size.
@@ -177,8 +177,8 @@ Trained model with PLCC-induced loss function to maximize the PLCCwith different
 |           | KonIQ-10k   |  LIVE-itW  | |
 |:---:|:---:|:---:|:---:|
 | Batch size| SROCC \| PLCC|SROCC \| PLCC| Model |
-| 8 | 0.914 \| 0.930 | 0.816 \| 0.837 | [link]() |
-| 4 | 0.871 \| 0.877 | 0.748 \| 0.713 | [link]() |
+| 8 | 0.914 \| 0.930 | 0.816 \| 0.837 | [link](https://drive.google.com/file/d/1SVhPzspYk3CejL1e082EwZXE0T3-H-o-/view?usp=sharing) |
+| 4 | 0.871 \| 0.877 | 0.748 \| 0.713 | [link](https://drive.google.com/file/d/1r1E7xmRqKQByITQoZraJNevAXTN3agPW/view?usp=sharing) |
 
 
 
@@ -187,5 +187,15 @@ Trained  model  with  update  version,  and  pytorch  version  of  authorscompar
 |:---:|:---:|:---:|:---:|
 |Batch size| SROCC \| PLCC|SROCC \| PLCC| Model |
 |16 [KonCept512](https://github.com/subpic/koniq) | 0.921 \| 0.937 | 0.825 \| 0.848 |  [link](https://drive.google.com/file/d/1ae4t3j42dEB5yCSKlDxovjJq0tAHs3vo/view?usp=sharing) |
-| 8 (Tensorflow) | 0.902 \| 0.921 | 0.796 \| 0.803 | [link]() |
-| 8 (Pytorch) | 0.892 \| 0.913 | 0.783 \| 0.805 | [link]() |
+| 8 (Tensorflow) | 0.902 \| 0.921 | 0.796 \| 0.803 | [link](https://drive.google.com/file/d/16GcSR87R-RpjoB5c4Ylau5AWQgHGMVWf/view?usp=sharing) |
+| 8 (Pytorch) | 0.892 \| 0.913 | 0.783 \| 0.805 | [link](https://drive.google.com/file/d/1MVRMsqe7J1uP-6R71dBlFQtxpAUkkTRA/view?usp=sharing) |
+
+
+
+#### Lifelogging Results
+
+We predicted the MOS values of 183227 lifelog images using two models, the original KonCept512 pre-trained model and our best model.
+
+We provide a csv file with the prediction made by these pre-trained models, [orignal_lsc21-MOS.csv](orignal_lsc21-MOS.csv) and [b8kuti_lsc21-MOS.csv](b8kuti_lsc21-MOS.csv), respectively.
+
+To run the pre-trained models in the LSC21 dataset you can run the [lifelog_test.py](lifelog_test.py) python script.
